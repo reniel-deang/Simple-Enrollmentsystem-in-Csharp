@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
             {
                 Form1 form1 = new Form1();
                 conn1.Open();
-                string query = "INSERT INTO tb_studentinfo (username, pass, elementary, jhs, college, fname, mname, lname, gender, course, year, birthdate, address, number, guardian, guardianumber,status) VALUES ('" + username + "','" + pass + "','" + elementary + "','" + jhs + "','" + college + "','" + fname + "','" + mname + "','" + lname + "','" + gender + "','" + course + "','" + year + "','" + birthdate + "','" + address + "','" + number + "','" + guardian + "','" + guardiannumber + "','0')";
+                string query = "INSERT INTO tb_studentinfo (username, pass, elementary, jhs, college, fname, mname, lname, gender, course, year, birthdate, address, number, guardian, guardianumber,status) VALUES ('" + username + "','" + pass + "','" + elementary + "','" + jhs + "','" + college + "','" + fname + "','" + mname + "','" + lname + "','" + gender + "','" + course + "','" + year + "','" + birthdate + "','" + address + "','" + number + "','" + guardian + "','" + guardiannumber + "','not enrolled')";
                 MySqlCommand cmd = new MySqlCommand(query, conn1);
 
                 int check = cmd.ExecuteNonQuery();

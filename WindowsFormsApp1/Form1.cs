@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
             try
             {
                 conn1.Open();
-                string query = "SELECT * FROM tb_studentinfo WHERE username = '" + username + "' AND pass = '" + pass + "'";
+                string query = "SELECT * FROM tb_studentinfo WHERE username = BINARY '" + username + "' AND pass = BINARY '" + pass + "'";
                 MySqlCommand cmd = new MySqlCommand(query, conn1);
                 MySqlDataReader reader;
                 reader = cmd.ExecuteReader();
@@ -38,6 +38,7 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Yawa ADMIN");
                         this.Hide();
                         adminform.Show();
+                   
                     }
 
                     else
@@ -45,6 +46,7 @@ namespace WindowsFormsApp1
                         MessageBox.Show("Yawa STODINT");
                         this.Hide();
                         studentdashboard.Show();
+                        
                     }
                     
                 }
