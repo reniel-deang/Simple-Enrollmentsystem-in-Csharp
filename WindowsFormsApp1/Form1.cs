@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
                 {
                     if(username.Contains("@admin")) 
                     {
-                        MessageBox.Show("Yawa ADMIN");
+                        MessageBox.Show("Welcome Admin!");
                         this.Hide();
                         adminform.Show();
                    
@@ -43,7 +43,6 @@ namespace WindowsFormsApp1
 
                     else
                     {
-                        MessageBox.Show("Yawa STODINT");
                         this.Hide();
                         studentdashboard.Show();
                         

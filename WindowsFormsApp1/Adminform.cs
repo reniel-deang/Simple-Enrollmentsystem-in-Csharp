@@ -84,6 +84,7 @@ namespace WindowsFormsApp1
         public Adminform()
         {
             InitializeComponent();
+            clear();
             getdata();
         }
 
@@ -154,6 +155,17 @@ namespace WindowsFormsApp1
 
                 DataGridViewCell valuestatus = studentlist.Rows[e.RowIndex].Cells[e.ColumnIndex + 17];
                 status.Text = valuestatus.Value.ToString();
+
+                if(status.Text == "not enrolled")
+                {
+                    status.Text = "NOT ENROLLED";
+                    status.ForeColor = Color.Red;
+                }
+                else
+                {
+                    status.Text = "ENROLLED";
+                    status.ForeColor = Color.Green;
+                }
             }
             
         }
@@ -164,6 +176,59 @@ namespace WindowsFormsApp1
             MessageBox.Show("Logout Successfully");
             form1.Show();
             this.Close();
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn1 = new MySqlConnection(conn);
+
+            try
+            {
+                conn1.Open();
+                int studentid = int.Parse(lblid.Text);
+                string query = "DELETE FROM tb_studentinfo WHERE studentid = '" + studentid + "'";
+                MySqlCommand cmd = new MySqlCommand(query, conn1);
+                MySqlDataReader reader;
+                reader = cmd.ExecuteReader();
+                MessageBox.Show("Sucessfully Dropped Student");
+                getdata();
+                clear();
+                conn1.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+        }
+
+        public void clear()
+        {
+            lblid.Text = "-";
+            status.Text = "-";
+            username.Text = "";
+            pass.Text = "";
+            fname.Text = "";
+            mname.Text = "";
+            lname.Text = "";
+            gender.Text = "";
+            course.Text = "";
+            year.Text = "";
+            birthdate.Text = "";
+            address.Text = "";
+            number.Text = "";
+            guardian.Text = "";
+            guardiannumber.Text = "";
+            elementary.Text = "";
+            jhs.Text = "";
+            college.Text = "";
+
+        }
+
+        private void Adminform_Load(object sender, EventArgs e)
+        {
+            getdata();
         }
     }
 }

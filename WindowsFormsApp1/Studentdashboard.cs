@@ -28,5 +28,13 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            MessageBox.Show("Logout Successfully");
+            form1.Show();
+            this.Hide();
+        }
     }
 }
