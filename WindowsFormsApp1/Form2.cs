@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
     public partial class Form2 : Form
     {
         
-        public string conn = "datasource=localhost;username=root;pass=;database=db_enrollmentdata";
+        public string conn = "datasource=localhost;username=root;pass=;database=c";
 
         public void registeruser(string username, string pass, string elementary, string jhs, string college, string fname, string mname, string lname, string gender, string course, string year, string birthdate, string address, string number, string guardian, string guardiannumber)
         {
